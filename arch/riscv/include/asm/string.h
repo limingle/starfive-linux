@@ -16,7 +16,6 @@ extern void *__memcpy(void *dest, const void *src, size_t count);
 #define __HAVE_ARCH_MEMMOVE
 extern void *memmove(void *dest, const void *src, size_t count);
 extern void *__memmove(void *dest, const void *src, size_t count);
-#endif
 
 /* For those files which don't want to check by kasan. */
 #if defined(CONFIG_KASAN) && !defined(__SANITIZE_ADDRESS__)
@@ -28,5 +27,6 @@ extern void *__memmove(void *dest, const void *src, size_t count);
 #define __NO_FORTIFY /* FORTIFY_SOURCE uses __builtin_memcpy, etc. */
 #endif
 
+#endif
 #endif
 #endif /* _ASM_RISCV_STRING_H */
