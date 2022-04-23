@@ -139,12 +139,10 @@ struct sf_pwmdac_dev {
 
 #if IS_ENABLED(CONFIG_SND_STARFIVE_PWMDAC_PCM)
 void sf_pwmdac_pcm_push_tx(struct sf_pwmdac_dev *dev);
-void sf_pwmdac_pcm_pop_rx(struct sf_pwmdac_dev *dev);
 int sf_pwmdac_pcm_register(struct platform_device *pdev);
 #else
-void sf_pwmdac_pcm_push_tx(struct sf_pwmdac_dev *dev) { }
-void sf_pwmdac_pcm_pop_rx(struct sf_pwmdac_dev *dev) { }
-int sf_pwmdac_pcm_register(struct platform_device *pdev)
+static void sf_pwmdac_pcm_push_tx(struct sf_pwmdac_dev *dev) { }
+static int sf_pwmdac_pcm_register(struct platform_device *pdev)
 {
 	return -EINVAL;
 }
